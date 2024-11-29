@@ -19,3 +19,241 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.instagram-media-rendered iframe {
+  pointer-events: none !important;
+}
+
+/* Force show video and hide Instagram UI */
+.instagram-media-rendered iframe[src*="instagram.com"] {
+  background: transparent !important;
+  border: none !important;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  margin-top: -7px;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 1.5px;
+}
+
+input[type='range']::-moz-range-track {
+  height: 3px;
+  border-radius: 1.5px;
+}
+
+
+
+/* Add these styles for the hotspot pulse effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.hotspot-pulse::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.instagram-post-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.instagram-embed-container {
+  position: relative;
+  transform-origin: center;
+}
+
+/* Hide header and footer in grid view */
+.instagram-embed-container:not(.instagram-modal) [class*="Header-"],
+.instagram-embed-container:not(.instagram-modal) [class*="Footer-"],
+.instagram-embed-container:not(.instagram-modal) .Caption {
+  display: none !important;
+}
+
+/* Show full post in modal */
+.instagram-modal [class*="Header-"],
+.instagram-modal header,
+.instagram-modal [class*="Footer-"],
+.instagram-modal footer,
+.instagram-modal .Caption {
+  display: block !important;
+}
+
+/* Remove borders and backgrounds */
+.instagram-embed-container iframe {
+  border: none !important;
+  background: none !important;
+}
+
+.instagram-embed-container > div {
+  background: none !important;
+  border: none !important;
+}
+
+/* Modal styles */
+.instagram-modal {
+  width: 100% !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+}
+
+.instagram-modal-container {
+  width: 100%;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 0;
+}
+
+.instagram-modal {
+  width: 100% !important;
+  margin: 0 !important;
+  background: white !important;
+}
+
+.instagram-modal iframe {
+  width: 100% !important;
+  margin: 0 !important;
+  border: none !important;
+  max-height: calc(70vh - 60px) !important;
+}
+
+/* Hide caption but keep engagement elements */
+.instagram-modal .Caption,
+.instagram-modal [class*="PostCaption-"],
+.instagram-modal [class*="caption-"],
+.instagram-modal [class*="-caption"],
+.instagram-modal [class*="CaptionContainer-"] {
+  display: none !important;
+}
+
+/* Keep engagement section visible */
+.instagram-modal [class*="Footer-"],
+.instagram-modal [class*="Actions-"],
+.instagram-modal [class*="Likes-"],
+.instagram-modal [class*="Comments-"] {
+  display: block !important;
+  padding: 6px 8px !important;
+  margin: 0 !important;
+  background: white !important;
+  font-size: 0.9rem !important;
+}
+
+/* Style the engagement section */
+.instagram-modal [class*="Footer-"] {
+  border-top: 1px solid #efefef;
+}
+
+.instagram-modal [class*="Footer-"] button,
+.instagram-modal [class*="Footer-"] svg {
+  color: #262626 !important;
+}
+
+/* Keep the modal compact */
+.instagram-modal > div {
+  background: white !important;
+  border-radius: 3px;
+  overflow: hidden;
+  transform: scale(0.95);
+  transform-origin: top center;
+}
+
+/* Compact scrollbar styling */
+.instagram-modal-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.instagram-modal-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.instagram-modal-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.instagram-modal-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* Hide unnecessary elements in modal */
+.instagram-modal [class*="Header-"],
+.instagram-modal [class*="Footer-"] {
+  padding: 6px 8px !important;
+}
+
+.instagram-modal .Caption {
+  padding: 8px !important;
+  margin: 0 !important;
+}

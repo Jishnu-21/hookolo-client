@@ -22,10 +22,7 @@ const LoginPage = () => {
     setEmail,
     setPassword,
     togglePassword,
-    register,
     login,
-    verifyOtp,
-    resendOtp
   } = useAuthStore();
 
   const handleSubmit = async (e) => {
